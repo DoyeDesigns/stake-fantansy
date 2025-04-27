@@ -45,7 +45,7 @@ export default function ConnectButton() {
       await navigator.clipboard.writeText(address);
       toast.success("Copied Succesfully")
     } catch (err) {
-      toast.error("Failed to copy text:");
+      toast.error(`Failed to copy text. ${err}`);
     }
   }
 

@@ -1,13 +1,10 @@
 'use client'
 
 import React from 'react'
-import Image from 'next/image'
 import PlayerStatistics from './features/PlayerStatistics';
 import ConnectButton from '@/components/ConnectButton';
-import { useWallet } from '@civic/auth-web3/react';
 
 export default function Profile() {
-    const {address} = useWallet({type: 'solana'});
   return (
     <main className='h-screen overflow-auto bg-background flex flex-col justify-between'>
         <div>

@@ -10,7 +10,7 @@ import { CHARACTERS } from "@/lib/characters";
 import { compactHash } from "@/components/ConnectButton";
 import { useWallet } from "@civic/auth-web3/react";
 
-export default function page() {
+export default function OpenGames() {
   const [gameRooms, setGameRooms] = useState<GameRoomDocument[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);

@@ -25,7 +25,7 @@ const UserGameRooms = () => {
       );
       setGameRooms(filteredRooms || []);
     } catch (err) {
-      setError('Failed to load game rooms');
+      setError(`Failed to load game rooms. ${err}`);
     } finally {
       setLoading(false);
     }
@@ -40,7 +40,7 @@ const UserGameRooms = () => {
     try {
       await joinGameRoom(roomId, address as string);
     } catch (err) {
-      setError('Failed to join game room');
+      setError(`Failed to join game room. ${err}`);
     } finally {
       router.push(`/game-play/${roomId}`);
     }

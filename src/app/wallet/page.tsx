@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image'
-import { UserButton, useUser, useWallet } from '@civic/auth-web3/react'
+import { UserButton, useWallet } from '@civic/auth-web3/react'
 import ConnectButton from '@/components/ConnectButton'
 
 export default function Wallet() {

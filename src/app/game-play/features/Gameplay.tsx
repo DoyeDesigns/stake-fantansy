@@ -13,7 +13,7 @@ import WonMessage from './WonMessage'
 import LostMessage from './LostMessage'
  import Image from 'next/image';
 import HowToPlay from '@/components/HowToPlay';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 import { useWallet } from '@civic/auth-web3/react';
 
 interface LastAttackDetails {
@@ -38,7 +38,7 @@ export default function Gameplay({roomId} : {roomId: string}) {
   const [stakeDetails, setStakeDetails] = useState<StakeDetails | null>(null);
 
   const {address, wallet} = useWallet({type: 'solana'});
-  const router = useRouter();
+  // const router = useRouter();
 
   const gameRoomId = roomId;
 
