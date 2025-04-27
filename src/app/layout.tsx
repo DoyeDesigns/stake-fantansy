@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { CivicAuthProvider } from "@civic/auth-web3/nextjs";  
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
+import NavBar from "@/components/NavBar";
 
 
 const geistSans = Geist({
@@ -33,6 +34,7 @@ export default function RootLayout({
       >
               <CivicAuthProvider>
                 {children}
+                <NavBar />
               </CivicAuthProvider>
               <ToastContainer autoClose={3000} />
       </body>

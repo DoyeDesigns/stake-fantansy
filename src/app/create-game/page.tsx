@@ -138,7 +138,7 @@ const stakeDetails: StakeDetails = {
     if (roomToJoinId === null) {
       return (
         <button
-          className="gradient-tracker border-none disabled:!text-white/50 hover:gradient-tracker hover:text-white btn text-white h-12 !rounded-[5px] w-[349px] mt-[35px]"
+          className="gradient-tracker border-none disabled:!text-white/50 hover:gradient-tracker hover:text-white btn text-white h-12 !rounded-[5px] w-[349px] mt-[35px] bg-primary hover:bg-primary"
           onClick={handleSubmit}
           disabled={!selectedCharacter}
         >
@@ -227,7 +227,7 @@ const stakeDetails: StakeDetails = {
       <div className="flex justify-center pb-[130px]">
         {currentStep < 2 && (
           <button
-            className="gradient-tracker border-none hover:gradient-tracker hover:text-white btn disabled:!text-white/50 text-white h-12 !rounded-[5px] w-[349px] mt-[35px]"
+            className="gradient-tracker border-none hover:gradient-tracker hover:text-white btn disabled:!text-white/50 text-white h-12 !rounded-[5px] w-[349px] mt-[35px] bg-primary hover:bg-primary/80"
             onClick={() => handleNext()}
             disabled={!step1Value}
           >
