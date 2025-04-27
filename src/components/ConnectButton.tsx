@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-const compactHash = (hash: string) => {
+export const compactHash = (hash: string) => {
   return hash.slice(0, 7) + "..." + hash.slice(-5);
 };
 

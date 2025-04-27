@@ -43,7 +43,8 @@ export interface GameRoomDocument {
   };
   createdAt: Timestamp;
   gameState?: GameState;
-  stakeDetails?: StakeDetails; 
+  stakeDetails?: StakeDetails;
+  creatorTotalWins?: number; 
 }
 
 interface DefenseInventory {
@@ -402,47 +403,79 @@ checkDiceRollsAndSetTurn: async () => {
     if (!playerAddress) {
       throw new Error('User not found');
     }
-
+  
     const roomRef = doc(db, 'gameRooms', roomId);
-   
-    updateDoc(roomRef, {
-      [`players.${playerAddress}`]: {
-        characterId: null,
-        role: 'challenger',
-        wallet: playerAddress,
-        diceRoll: null,
-      },
-      status: 'character-select'
-    });
-
-    set({
-      roomId,
-      playerAddress: playerAddress
-    });
-},
+    const roomSnap = await getDoc(roomRef);
+    
+    if (!roomSnap.exists()) {
+      throw new Error('Room does not exist');
+    }
+  
+    const roomData = roomSnap.data();
+    const existingPlayers = roomData.players || {};
+  
+    if (playerAddress === roomData.players[roomData.createdBy]?.wallet && roomData.players[roomData.createdBy]?.role === 'creator') {
+      set({
+        roomId,
+        playerAddress: playerAddress
+      });
+      return
+    } else if (playerAddress === existingPlayers?.[playerAddress]?.wallet && existingPlayers?.[playerAddress]?.role === 'challenger') {
+      set({
+        roomId,
+        playerAddress: playerAddress
+      });
+      return
+    } else {
+      await updateDoc(roomRef, {
+        [`players.${playerAddress}`]: {
+          characterId: null,
+          role: 'challenger',
+          wallet: playerAddress,
+          diceRoll: null,
+        },
+        status: 'character-select'
+      });
+      set({
+        roomId,
+        playerAddress: playerAddress
+      });
+    }
+  },
 
   findOpenGameRoom: async (playerAddress: string) => {
-  
-    if (!playerAddress) {
-      throw new Error('User not found');
-    }
+    if (!playerAddress) throw new Error('User not found');
   
     const roomsRef = collection(db, 'gameRooms');
-    const q = query(
-      roomsRef, 
-      where('status', '==', 'waiting'),
-      where('createdBy', '!=', playerAddress)
-    );
+    const querySnapshot = await getDocs(roomsRef);
+    
+    const allRooms = querySnapshot.docs.map(doc => ({
+      ...doc.data() as GameRoomDocument,
+      id: doc.id
+    }));
   
-    const querySnapshot = await getDocs(q);
+    const winCounts = allRooms.reduce((acc, room) => {
+      if (room.status === 'finished' && room.gameState?.winner) {
+        const winnerAddress = room.gameState.winner === 'player1' 
+          ? room.gameState.player1.id 
+          : room.gameState.player2.id;
+        
+        if (winnerAddress) {
+          acc.set(winnerAddress, (acc.get(winnerAddress) || 0) + 1);
+        }
+      }
+      return acc;
+    }, new Map<string, number>());
   
-    if (querySnapshot.empty) {
-      return []; 
-    }
-  
-    const rooms = querySnapshot.docs.map(doc => doc.data() as GameRoomDocument);
-  
-    return rooms;
+    return allRooms
+      .filter(room => 
+        room.status === 'character-select' && 
+        room.createdBy !== playerAddress
+      )
+      .map(room => ({
+        ...room,
+        creatorTotalWins: winCounts.get(room.createdBy) || 0,
+      }));
   },
 
   findUserRooms: async (playerAddress: string) => {
