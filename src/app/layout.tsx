@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { CivicAuthProvider } from "@civic/auth-web3/nextjs";  
 import "./globals.css";
+import { ToastContainer } from "react-toastify";
 
 
 const geistSans = Geist({
@@ -33,6 +34,7 @@ export default function RootLayout({
               <CivicAuthProvider>
                 {children}
               </CivicAuthProvider>
+              <ToastContainer autoClose={3000} />
       </body>
     </html>
   );
