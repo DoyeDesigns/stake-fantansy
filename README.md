@@ -62,7 +62,7 @@ graph TD
     D --> E{Defense Choice}
     E -->|Reflect| F[Return Damage]
     F --> I[Player 2 Turn]
-    E -->|Dodge| G[Player 1 Turn Again]
+    E -->|Dodge| G[Player 2 Turn]
     E -->|Block| H[Reduce Damage]
-    H --> I[Player 2 Turn]
+    H --> I[Player 1 Turn]
 ```
