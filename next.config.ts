@@ -21,7 +21,8 @@ export const nextConfig: NextConfig = {
 const withCivicAuth = createCivicAuthPlugin({
   clientId: `${process.env.CLIENT_ID}`,
   loginUrl: '/wallet',
-  exclude: ['/', '/wallet']
+  include: ['/'],
+  exclude: ['/wallet']
 });
 
 export default withCivicAuth(nextConfig)

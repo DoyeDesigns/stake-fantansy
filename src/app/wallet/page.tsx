@@ -14,7 +14,7 @@ export default function Wallet() {
         <p className='mt-4 text-white'>Hey there Warrior!</p>
         <p className='mb-[91px] text-white'>Connect your wallet to get access to stake for battle</p>
         <UserButton />
-        {wallet?.connected ? <ConnectButton /> : <></>}
+        {wallet?.connected ? <ConnectButton /> : wallet?.connecting ? <span className="loading loading-spinner loading-xs"></span> : <></>}
     </div>
   )
 }
