@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import { StakeDetails } from '@/store/online-game-store';
 import HowToPlay from '@/components/HowToPlay';
 
@@ -26,7 +25,7 @@ const Step1: React.FC<Step1Props> = ({ value, onChange, stakeDetails }) => {
   return (
     <div className='flex flex-col items-center'>
       <div className='flex justify-center mb-4'>
-        <Image
+        <img
           src="/stake-wars-logo.png"
           alt="Create Game Header Image"
           width={135}
