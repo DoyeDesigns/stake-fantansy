@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import Step1 from "./features/Step1";
 import Step2 from "./features/Step2";
-import Image from "next/image";
 import Link from "next/link";
 import Step3 from "./features/Step3";
 import { useRouter } from "next/navigation";
@@ -12,9 +11,8 @@ import useOnlineGameStore from "@/store/online-game-store";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import { StakeDetails } from "@/store/online-game-store";
-import ConnectButton from "@/components/ConnectButton";
 import { toast } from "react-toastify";
-import { useWallet } from "@civic/auth-web3/react";
+import { UserButton, useWallet } from "@civic/auth-web3/react";
 
 function CreateGameMultiStepForm() {
   const [currentStep, setCurrentStep] = useState<number>(1);
@@ -148,7 +146,7 @@ const stakeDetails: StakeDetails = {
     } else {
       return (
         <button
-          className="gradient-tracker border-none disabled:!text-white/50 hover:gradient-tracker hover:text-white btn text-white h-12 !rounded-[5px] w-[349px] mt-[35px]"
+          className="gradient-tracker border-none disabled:!text-white/50 hover:gradient-tracker bg-primary hover:bg-primary/80 hover:text-white btn text-white h-12 !rounded-[5px] w-[349px] mt-[35px]"
           onClick={() => joinActiveGameRoom(roomToJoinId)}
           disabled={!selectedCharacter}
         >
@@ -158,18 +156,18 @@ const stakeDetails: StakeDetails = {
     }
   }
 
-  if (wallet?.connected === false) {
+  if (!wallet?.connected) {
     return (
       <div className="pt-4 h-screen overflow-auto bg-background flex justify-center items-center px-5">
         <div>
-          {roomStakeDetails ? (
+          {/* {roomStakeDetails ? (
             <div className="text-white">
               Set Network to {roomStakeDetails.name} to join game
             </div>
           ) : (
             <></>
-          )}
-          <ConnectButton />
+          )} */}
+          <UserButton />
         </div>
       </div>
     );
@@ -188,7 +186,7 @@ const stakeDetails: StakeDetails = {
             >
               {currentStep === 1 ? (
                 <Link href="/play">
-                  <Image
+                  <img
                     src="/arrow-back.png"
                     alt="arrow-back"
                     width={30}
@@ -196,7 +194,7 @@ const stakeDetails: StakeDetails = {
                   />
                 </Link>
               ) : (
-                <Image
+                <img
                   src="/arrow-back.png"
                   alt="arrow-back"
                   width={30}

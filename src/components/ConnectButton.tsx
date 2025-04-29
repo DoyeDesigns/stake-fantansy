@@ -2,7 +2,6 @@
 
 import { useWallet } from "@civic/auth-web3/react";
 import { clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
@@ -58,7 +57,7 @@ export default function ConnectButton() {
         Copy address
       </button>
       <span className="flex items-center gap-2">
-          <Image
+          <img
             className="inline-block"
             src="/wallet.png"
             alt="wallet"

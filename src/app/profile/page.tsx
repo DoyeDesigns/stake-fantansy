@@ -3,8 +3,10 @@
 import React from 'react'
 import PlayerStatistics from './features/PlayerStatistics';
 import ConnectButton from '@/components/ConnectButton';
+import { UserButton, useWallet } from '@civic/auth-web3/react';
 
 export default function Profile() {
+    const {wallet} = useWallet({type: 'solana'})
   return (
     <main className='h-screen overflow-auto bg-background flex flex-col justify-between'>
         <div>
@@ -18,7 +20,7 @@ export default function Profile() {
             </div>
 
             <div className='text-white'>
-                <ConnectButton />
+                {!wallet?.connected ? <UserButton /> : <ConnectButton />}
             </div>
         </div>
         <div className="h-px bg-[#6A6868]"></div>

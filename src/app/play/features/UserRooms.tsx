@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { GameRoomDocument, GameRoomPlayer } from '@/store/online-game-store';
 import useOnlineGameStore from '@/store/online-game-store';
 import { useRouter } from 'next/navigation';
-import { useWallet } from '@civic/auth-web3/react';
+import { UserButton, useWallet } from '@civic/auth-web3/react';
 
 const UserGameRooms = () => {
   const [gameRooms, setGameRooms] = useState<GameRoomDocument[]>([]);
@@ -12,7 +12,7 @@ const UserGameRooms = () => {
 
   const { joinGameRoom, findUserRooms } = useOnlineGameStore();
   const router = useRouter();
-  const { address } = useWallet({type: 'solana'});
+  const { address, wallet } = useWallet({type: 'solana'});
 
   const fetchUserGameRooms = async () => {
     setLoading(true);
@@ -33,7 +33,7 @@ const UserGameRooms = () => {
 
   useEffect(() => {
     fetchUserGameRooms();
-  }, [findUserRooms]);
+  }, [findUserRooms, address]);
   
 
   const handleJoinRoom = async (roomId: string) => {
@@ -96,6 +96,15 @@ const UserGameRooms = () => {
           </div>
         </div>
       )}
+
+      {!wallet?.connected && (
+        <div className="w-full space-y-4 pb-[150px] mt-10">
+        <div className='flex justify-center items-center'>
+          <UserButton />
+        </div>
+      </div>
+      )
+      }
 
       {!loading && !error && gameRooms.length === 0 && (
         <p className="text-white text-center my-2">No game rooms found</p>

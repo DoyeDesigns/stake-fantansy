@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import useOnlineGameStore from "@/store/online-game-store";
 import { GameRoomDocument } from "@/store/online-game-store";
@@ -119,7 +118,7 @@ export default function PlayerStatistics() {
       <div className="flex gap-[200px] justify-center items-center pt-[32px] pb-[18px] text-white">
         <h2 className="font-bold text-[16px]">History</h2>
         <button onClick={fetchJoinedRooms} className="text-xs flex gap-2 items-center">
-          <Image src="/refresh.png" alt="refresh" width={20} height={20} />{" "}
+          <img src="/refresh.png" alt="refresh" width={20} height={20} />{" "}
           Refresh
         </button>
       </div>
@@ -129,7 +128,7 @@ export default function PlayerStatistics() {
         {joinedRooms.map((room) => (
             <div key={room.id} className="bg-[#393939] h-[66px] rounded-[10px] flex justify-between items-center w-[364px] min-w-[250px] pr-[18px] pl-8 mx-2">
             <div className="flex gap-3 items-center">
-              <Image
+              <img
                 src={didUserWin(room, address) ? "/history-won-img.png" : "/history-lost-img.png"}
                 alt={didUserWin(room, address) ? "history-won-img.png" : "history-lost-img.png"}
                 width={39}

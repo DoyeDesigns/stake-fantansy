@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { GameRoomDocument } from '@/store/online-game-store';
 
 export default function PlayerHealth({ gameState }: {
@@ -12,7 +11,7 @@ export default function PlayerHealth({ gameState }: {
 
   return (
     <div className='bg-[#E1C17B] bg-[url("/health-bg.png")] bg-cover h-10 w-[250px] rounded-3xl flex gap-3 px-2 items-center '>
-      <Image
+      <img
         src={`/${currentPlayer?.character?.id}.png`}
         alt={currentPlayer?.character?.name || 'Player Character'}
         width={45}
@@ -44,7 +43,7 @@ export function OpponentPlayerHealth({ gameState }: {
 
   return (
     <div className='bg-[#E1C17B] bg-[url("/health-bg.png")] bg-cover h-10 w-[250px] rounded-3xl flex flex-row-reverse gap-3 px-2 items-center '>
-      <Image
+      <img
         src={`/${opponentPlayer?.character?.id}.png`}
         alt={opponentPlayer?.character?.name || 'Opponent Character'}
         width={45}

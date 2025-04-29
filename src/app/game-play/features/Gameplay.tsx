@@ -11,7 +11,6 @@ import PlayerHealth, { OpponentPlayerHealth } from "./PlayerHealth";
 import PlayerAbility from './PlayerAbility';
 import WonMessage from './WonMessage'
 import LostMessage from './LostMessage'
- import Image from 'next/image';
 import HowToPlay from '@/components/HowToPlay';
 // import { useRouter } from 'next/navigation';
 import { useWallet } from '@civic/auth-web3/react';
@@ -179,7 +178,7 @@ export default function Gameplay({roomId} : {roomId: string}) {
         </span>
         <div className='bg-[url("/dice-bg.png")] bg-cover flex flex-col justify-center items-center h-[164px] w-[164px] gap-3'>
         <div className='bg-[url("/green-grass-texture.png")] bg-contain bg-no-repeat bg-center flex justify-center items-center h-[123px] w-[123px]'>
-          <Image src='/dice-animation.gif' alt='dice' width={100} height={100} />
+          <img src='/dice-animation.gif' alt='dice' width={100} height={100} />
         </div>
         </div>
         <div className='space-y-3 flex flex-col justify-center items-center mt-2'>

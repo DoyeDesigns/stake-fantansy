@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from 'react';
-import Image from 'next/image';
 import { collection, doc, getDoc } from 'firebase/firestore';
 import { db } from '@/config/firebase';
 import { GameRoomDocument } from '@/store/online-game-store';
@@ -54,7 +53,7 @@ const GameRoomSearch = () => {
     <div className="w-full space-y-4 mb-5">
       <div className="flex flex-col">
       <label className="input !bg-[#919090]/50 input-bordered flex items-center gap-2 mb-4">
-      <Image src='/search.png' alt='search' width={24} height={24} />
+      <img src='/search.png' alt='search' width={24} height={24} />
         <input 
           type="text" 
           placeholder="Search for Game ID" 

@@ -1,6 +1,5 @@
 'use client'
 import React, { useState } from 'react';
-import Image from 'next/image';
 
 interface HowToPlayProps {
   iconSize?: number;
@@ -61,7 +60,7 @@ export default function HowToPlay({ iconSize = 24, textSize = "text-base" }: How
           
           <div className='flex justify-center mt-[70px]'>
           <div className='bg-[#E1C17B] bg-[url("/health-bg.png")] bg-cover h-10 w-[250px] rounded-3xl flex gap-3 px-2 items-center '>
-                <Image
+                <img
                   src="/donald-pump.png"
                   alt="Donald pump"
                   width={45}
@@ -96,7 +95,7 @@ export default function HowToPlay({ iconSize = 24, textSize = "text-base" }: How
           }
         }}
       >
-        <Image src="/green-info.png" alt="info" width={iconSize} height={iconSize} />
+        <img src="/green-info.png" alt="info" width={iconSize} height={iconSize} />
         <span className="underline mb-1 ml-1">How to play</span>
       </button>
 
@@ -105,7 +104,7 @@ export default function HowToPlay({ iconSize = 24, textSize = "text-base" }: How
         <div className="modal-content fixed inset-0 bg-gradient-to-b from-[#482007] to-[#AE4D11]">
           <form method="dialog" className="absolute top-4 right-4">
             <button className="p-1 hover:opacity-70 transition-opacity">
-              <Image src="/close-circle.png" alt="close" width={30} height={30} />
+              <img src="/close-circle.png" alt="close" width={30} height={30} />
             </button>
           </form>
 
@@ -126,7 +125,7 @@ export default function HowToPlay({ iconSize = 24, textSize = "text-base" }: How
                 className={`p-2 bg-transparent ${currentPage === 0 ? 'invisible' : ''}`}
                 onClick={() => setCurrentPage(prev => Math.max(0, prev - 1))}
               >
-                <Image src="/arrow-back.png" alt="Previous" width={24} height={24} />
+                <img src="/arrow-back.png" alt="Previous" width={24} height={24} />
               </button>
 
               <div className="flex gap-2 justify-center">
@@ -144,7 +143,7 @@ export default function HowToPlay({ iconSize = 24, textSize = "text-base" }: How
                 className={`p-2 bg-transparent ${currentPage === pages.length - 1 ? 'invisible' : ''}`}
                 onClick={() => setCurrentPage(prev => Math.min(pages.length - 1, prev + 1))}
               >
-                <Image src="/arrow-back.png" className='rotate-180' alt="Next" width={24} height={24} />
+                <img src="/arrow-back.png" className='rotate-180' alt="Next" width={24} height={24} />
               </button>
             </div>
           </div>

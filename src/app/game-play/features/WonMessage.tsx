@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { useState } from "react";
 import ExitGame from "./ExitGame";
 import { useRouter } from "next/navigation";
@@ -28,7 +27,7 @@ export default function WonMessage(stakeDetails: StakeDetails) {
         <div className="flex flex-col justify-center items-center h-screen">
           <div className='flex justify-end w-[60%] -mt-20'>
         </div>
-          <Image
+          <img
             src="/winner-background.png"
             alt="winner-bg"
             width={306}
@@ -44,7 +43,7 @@ export default function WonMessage(stakeDetails: StakeDetails) {
               </span>
             </div>
             <button className="btn border-none bg-white text-primary font-bold text-[12px] w-[190px] rounded-[10px]">
-              <Image
+              <img
                 src="/telegram-share.png"
                 alt="winner-bg"
                 width={24}
@@ -53,7 +52,7 @@ export default function WonMessage(stakeDetails: StakeDetails) {
               Tell your friends
             </button>
             <button onClick={() => router.push('/create-game')} className="btn border-none bg-white text-primary font-bold text-[12px] w-[190px] rounded-[10px]">
-              <Image
+              <img
                 src="/rematch.png"
                 alt="winner-bg"
                 width={24}
@@ -65,7 +64,7 @@ export default function WonMessage(stakeDetails: StakeDetails) {
               onClick={() => handleExitOptions()}
               className="btn border-none bg-white text-primary font-bold text-[12px] w-[190px] rounded-[10px]"
             >
-              <Image src="/exit.png" alt="winner-bg" width={24} height={24} />{" "}
+              <img src="/exit.png" alt="winner-bg" width={24} height={24} />{" "}
               Exit Game
             </button>
           </div>

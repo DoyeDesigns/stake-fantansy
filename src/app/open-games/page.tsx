@@ -4,7 +4,6 @@ import useOnlineGameStore, {
   GameRoomDocument,
 } from "@/store/online-game-store";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { CHARACTERS } from "@/lib/characters";
 import { compactHash } from "@/components/ConnectButton";
@@ -143,7 +142,7 @@ export default function OpenGames() {
               <div className="w-fit text-center">
                 <div className="bg-gradient-to-b from-[#6832AE] to-[#FFEFAB] size-[50px] flex justify-center rounded-[4px]">
                   {gameRoom.gameState?.player1.character?.id && (
-                    <Image
+                    <img
                       src={getCharacterImage(
                         gameRoom.gameState.player1.character.id
                       )}
@@ -164,7 +163,7 @@ export default function OpenGames() {
                 </h2>
 
                 <div className="flex items-center gap-1 mb-4">
-                    <Image
+                    <img
                       src="/noto_trophy.png"
                       alt="trophy icon"
                       width={8.15}
