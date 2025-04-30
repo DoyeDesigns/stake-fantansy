@@ -100,7 +100,7 @@ const UserGameRooms = () => {
       {!wallet?.connected && (
         <div className="w-full space-y-4 pb-[150px] mt-10">
         <div className='flex justify-center items-center'>
-          <UserButton />
+          <UserButton className='text-white'/>
         </div>
       </div>
       )

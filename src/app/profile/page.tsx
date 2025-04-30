@@ -20,7 +20,7 @@ export default function Profile() {
             </div>
 
             <div className='text-white'>
-                {!wallet?.connected ? <UserButton /> : <ConnectButton />}
+                {!wallet?.connected ? <UserButton className='text-white'/> : <ConnectButton />}
             </div>
         </div>
         <div className="h-px bg-[#6A6868]"></div>

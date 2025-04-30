@@ -163,7 +163,8 @@ export default function Gameplay({roomId} : {roomId: string}) {
 };
 
   return (
-    <div className='bg-[url("/game-play-bg.png")] bg-cover bg-no-repeat h-full overflow-auto  pt-[15px] relative'>
+    <div className='bg-[url("/game-play-bg.png")] bg-cover bg-no-repeat h-full overflow-auto flex justify-center pt-[15px] relative'>
+      <div className='sm:w-[600px]'>
       <div className="flex flex-col gap-5 px-5">
         <div>
           <PlayerHealth  gameState={gameState} />
@@ -186,8 +187,8 @@ export default function Gameplay({roomId} : {roomId: string}) {
           <DiceRollToDetermineFirstTurn />
         </div>
       </div>
-      <div className='flex justify-end my-2'>
-        <span className='p-2 rounded-[5px] bg-white'><HowToPlay iconSize={12} textSize='text-sm' /></span>
+      <div className='flex justify-center my-2'>
+        <span className='p-2 rounded-[5px] bg-primary'><HowToPlay iconSize={12} textSize='text-sm' /></span>
       </div>
       <div className="flex flex-col justify-center items-center">
         <span className="text-[14px] rounded-[10px] font-extrabold w-[337px] text-center h-[37px] flex justify-center items-center text-white bg-[#5B2D0C]">
@@ -208,6 +209,7 @@ export default function Gameplay({roomId} : {roomId: string}) {
           showSkipButton={showSkipDefenseButton}
         />
       )}
+      </div>
       </div>
     </div>
   );

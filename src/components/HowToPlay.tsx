@@ -87,7 +87,7 @@ export default function HowToPlay({ iconSize = 24, textSize = "text-base" }: How
   return (
     <div>
       <button
-        className={`flex p-0 bg-transparent items-center text-[#BFE528] hover:opacity-80 transition-opacity font-bold ${textSize}`}
+        className={`flex p-2 bg-primary items-center text-white hover:opacity-80 transition-opacity font-bold rounded-[8px] ${textSize}`}
         onClick={() => {
           const modal = document?.getElementById('my_modal_3');
           if (modal) {

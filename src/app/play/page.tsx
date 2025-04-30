@@ -8,8 +8,8 @@ import HowToPlay from '@/components/HowToPlay'
 
 export default function Play() {
   return (
-    <div className='h-screen overflow-auto bg-background flex flex-col justify-center px-4'>
-        <div className='h-full'>
+    <div className='h-screen overflow-auto bg-background flex flex-col justify-center items-center px-4'>
+        <div className='h-full sm:w-[500px]'>
             <div className='flex items-center justify-between my-5'>
               <h1 className='font-bold text-white m-0'>Find Game</h1>
               <HowToPlay iconSize={12}  textSize='text-sm'/>

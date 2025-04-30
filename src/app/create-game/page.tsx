@@ -167,7 +167,7 @@ const stakeDetails: StakeDetails = {
           ) : (
             <></>
           )} */}
-          <UserButton />
+          <UserButton className="text-white"/>
         </div>
       </div>
     );

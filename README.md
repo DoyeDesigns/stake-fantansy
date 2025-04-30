@@ -8,7 +8,7 @@ A blockchain-based battling game where players stake SOL, choose unique characte
 
 ## 🌟 Key Features
 - **Multi-Chain Battles** 🔗  
-  Powered by Reown AppKit multichain feature for seamless cross-chain interactions
+  Powered by Civic Auth embedded solana wallets
 - **SOL Staking** 💰  
   Risk SOL tokens to challenge opponents with 2x reward potential
 - **Character System** 🦸  
@@ -18,8 +18,11 @@ A blockchain-based battling game where players stake SOL, choose unique characte
 - **Real-Time Firebase Sync** 🔥  
   Live battle tracking and game state management
 
+## Project Presentation
+- https://drive.google.com/file/d/1Nyv5Mf4mifk3K_gzsDfPTz3NfOb6x484/view?usp=drivesdk
+
 ## 🛠 Tech Stack
-- **Blockchain**: Reown AppKit (Multi-Chain), Solana Program Library
+- **Blockchain**: Civic Auth (authentication & embedded wallets)
 - **Frontend**: Next.js 14, TypeScript, Tailwind CSS
 - **Backend**: Firebase Firestore, Cloud Functions
 - **Auth**: AppKit Wallet Connection (EOA & Smart Accounts)
@@ -30,17 +33,17 @@ A blockchain-based battling game where players stake SOL, choose unique characte
 ### 🛡️ Setup Phase
 
 1. **Wallet Connection**
-   - Connect multi-chain wallet using Reown AppKit
-   - Supported chains: Solana, Ethereum
+   - Automatic embedded solana wallets on account creation
+   - Supported chains: Solana
 
 <div align="center">
-  <img src="/public/connect-wallet.gif" alt="Logo" width="200"/>
+  <img src="/public/stake-sol.png" alt="Logo" width="200"/>
 </div>
 
 2. **Stake SOL**
 
 <div align="center">
-  <img src="/public/create-game.gif" alt="Logo" width="200"/>
+  <img src="/public/wallet-sol.png" alt="Logo" width="200"/>
 </div>
 
 ## ⚔️ Combat Phase
