@@ -12,7 +12,7 @@ export default function Wallet() {
         <h1 className='font-bold text-[24px] mt-7 text-white'>Connect your wallet</h1>
         <p className='mt-4 text-white'>Hey there Warrior!</p>
         <p className='mb-[91px] text-white'>Connect your wallet to get access to stake for battle</p>
-        <UserButton className='text-white'/>
+        <UserButton className='text-white hover:text-black'/>
         {wallet?.connected ? <ConnectButton /> : wallet?.connecting ? <span className="loading loading-spinner loading-xs"></span> : <></>}
     </div>
   )

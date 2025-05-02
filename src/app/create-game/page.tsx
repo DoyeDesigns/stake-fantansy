@@ -167,7 +167,7 @@ const stakeDetails: StakeDetails = {
           ) : (
             <></>
           )} */}
-          <UserButton className="text-white"/>
+          <UserButton className="text-white hover:text-black"/>
         </div>
       </div>
     );
